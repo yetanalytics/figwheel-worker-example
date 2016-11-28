@@ -23,9 +23,9 @@ To clean all compiled files:
 
 To create a production build run:
 
-    lein do clean, cljsbuild once min
+    lein do clean, cljsbuild once min min-worker
 
-And open your browser in `resources/public/index.html`. You will not
+To prevent an origin error, start Chrome with the `--allow-file-access-from-files` flag. Open your browser in `resources/public/index.html`. You will not
 get live reloading, nor a REPL.
 
 ## License
