@@ -40,7 +40,8 @@
                            :source-map-timestamp true
                            ;; To console.log CLJS data-structures make sure you enable devtools in Chrome
                            ;; https://github.com/binaryage/cljs-devtools
-                           :preloads [devtools.preload]}}
+                           :preloads [devtools.preload]
+                           :closure-defines {goog.DEBUG true}}}
                {:id "dev-worker"
                 :source-paths ["src_worker"]
 
@@ -60,8 +61,19 @@
                ;; lein cljsbuild once min
                {:id "min"
                 :source-paths ["src"]
-                :compiler {:output-to "resources/public/js/compiled/figwheel_worker_example.js"
-                           :main figwheel-worker-example.core
+                :compiler {:main figwheel-worker-example.core
+                           :output-to "resources/public/js/compiled/app.js"
+                           ;; Since we are compiling 2 builds at once,
+                           ;; explicitly set output dir to stop figwheel warning
+                           :output-dir "target/app_out"
+                           :optimizations :advanced
+                           :pretty-print false
+                           :closure-defines {goog.DEBUG false}}}
+               {:id "min-worker"
+                :source-paths ["src_worker"]
+                :compiler {:main figwheel-worker-example.worker
+                           :output-to "resources/public/js/compiled/worker.js"
+                           :output-dir "target/worker_out"
                            :optimizations :advanced
                            :pretty-print false}}]}
 

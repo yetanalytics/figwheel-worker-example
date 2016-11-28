@@ -3,7 +3,9 @@
 (enable-console-print!)
 
 ;; launch the worker
-(defonce worker (js/Worker. "js/bootstrap_worker.js"))
+(defonce worker (js/Worker. (if js/goog.DEBUG
+                              "js/bootstrap_worker.js"
+                              "js/compiled/worker.js")))
 
 (defn on-js-reload []
   ;; optionally touch your app-state to force rerendering depending on
