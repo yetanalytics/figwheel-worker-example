@@ -1,4 +1,4 @@
-CLOSURE_BASE_PATH = "compiled/out_worker/goog/"
+CLOSURE_BASE_PATH = "compiled/out_worker/goog/";
 /**
  * Imports a script using the Web Worker importScript API.
  *
@@ -12,7 +12,7 @@ this.CLOSURE_IMPORT_SCRIPT = (function(global) {
     };
 })(this);
 
-BASE_PATH = "compiled/";
-importScripts(CLOSURE_BASE_PATH + "base.js");
+if(typeof goog == "undefined") importScripts(CLOSURE_BASE_PATH + "base.js");
+
 importScripts("compiled/worker.js");
 goog.require('figwheel_worker_example.worker');
