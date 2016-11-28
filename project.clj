@@ -52,7 +52,6 @@
 
                 :compiler {;; Instead of a main, we bootstrap the worker
                            ;; from /resources/public/js/bootstrap_worker.js
-                           :asset-path "js/compiled/out_worker"
                            :output-to "resources/public/js/compiled/worker.js"
                            :output-dir "resources/public/js/compiled/out_worker"
                            :source-map-timestamp true
