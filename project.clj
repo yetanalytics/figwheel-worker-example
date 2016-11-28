@@ -55,7 +55,8 @@
                            :asset-path "js/compiled/out_worker"
                            :output-to "resources/public/js/compiled/worker.js"
                            :output-dir "resources/public/js/compiled/out_worker"
-                           :source-map-timestamp true}}
+                           :source-map-timestamp true
+                           :optimizations :none}}
                ;; This next build is an compressed minified build for
                ;; production. You can build this with:
                ;; lein cljsbuild once min
