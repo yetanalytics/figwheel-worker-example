@@ -47,9 +47,7 @@
                 ;; the presence of a :figwheel configuration here
                 ;; will cause figwheel to inject the figwheel client
                 ;; into your build
-                :figwheel {:on-jsload "figwheel-worker-example.worker/on-js-reload"
-                           ;; no heads up display in a worker!
-                           :heads-up-display false}
+                :figwheel {:on-jsload "figwheel-worker-example.worker/on-js-reload"}
 
                 :compiler {;; Instead of a main, we bootstrap the worker
                            ;; from /resources/public/js/bootstrap_worker.js
